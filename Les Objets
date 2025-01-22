@@ -1,0 +1,25 @@
+PS C:\> Get-History
+
+  Id     Duration CommandLine
+  --     -------- -----------
+   1        0.188 Start-Process calc.exe
+   2        1.212 Start-sleep -Seconds 1
+   3        0.020 Start-Process calc.exe
+   4        0.080 $AllProcess = Get-Process
+   5        0.030 Set-Location c:\
+   6        0.226 Get-ChildItem | Where-Object {$_.Name -like "*program*"}
+   7        0.413 $AllProcess | Where-Object {$_.Name -like "*calc*"}
+   8        0.114 Get-Process | Where-Object {$_.Name -like "*calc*"}
+
+
+PS C:\> $AllProcess | Where-Object {$_.Name -like "*calc*"}
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+     44    31,05      96,79       3,72    1916   1 CalculatorApp
+
+PS C:\> Get-Process | Where-Object {$_.Name -like "*calc*"}
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+     42    30,50      95,49       3,72    1916   1 CalculatorApp
